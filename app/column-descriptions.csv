@@ -1,0 +1,391 @@
+Column,DataType,Enhanced Description
+play_id,float64,Unique identifier for each play in the game. Format: Floating point number.
+game_id,object,Unique identifier for each game. Format: String.
+old_game_id,int64,"Previous game identifier, possibly from an older system. Format: Integer."
+home_team,object,Abbreviation of the team. Format: String.
+away_team,object,Abbreviation of the team. Format: String.
+season_type,object,"Values are 'REG' for regular season, 'POST' for postseason."
+week,int64,Week of the NFL season. Format: Integer.
+posteam,object,Possessing team abbreviation. Format: String.
+posteam_type,object,"Values are 'home' for home team, 'away' for away team."
+defteam,object,Defending team abbreviation. Format: String.
+side_of_field,object,Side of the field the team is on. Format: String.
+yardline_100,float64,Yard line from the opponent's end zone. Format: Floating point number.
+game_date,object,Date of the game. Format: String.
+quarter_seconds_remaining,float64,Seconds remaining in the current quarter. Format: Floating point number.
+half_seconds_remaining,float64,Seconds remaining in the current half. Format: Floating point number.
+game_seconds_remaining,float64,Seconds remaining in the entire game. Format: Floating point number.
+game_half,object,"Values are 'Half1' for the first half, 'Half2' for the second half, and 'Overtime' for overtime."
+quarter_end,float64,Indicator of whether the play was at the end of the quarter. Format: Floating point number.
+drive,float64,Drive number within the game. Format: Floating point number.
+sp,float64,"Special play indicator (1 if the play is a special teams play, else 0). Format: Floating point number."
+qtr,float64,"Quarter of the game. Values are 1, 2, 3, 4, and 5 for overtime."
+down,float64,"Down of the play. Values are 1, 2, 3, or 4."
+goal_to_go,int64,"Binary indicator if it's a goal-to-go situation (1 for true, 0 for false). Format: Integer."
+time,object,Time on the game clock. Format: String.
+yrdln,object,Yard line for the current play. Format: String.
+ydstogo,float64,Yards to go for a first down. Format: Floating point number.
+ydsnet,float64,Net yards gained in the game so far. Format: Floating point number.
+desc,object,Description of the play. Format: String.
+play_type,object,"Type of play (e.g., run, pass, kick). Format: String."
+yards_gained,float64,Yards gained on the play. Format: Floating point number.
+shotgun,float64,"Indicator if the play was from a shotgun formation (1 for true, 0 for false). Format: Floating point number."
+no_huddle,float64,"Indicator if the play was a no-huddle play (1 for true, 0 for false). Format: Floating point number."
+qb_dropback,float64,"Indicator if the QB dropped back to pass (1 for true, 0 for false). Format: Floating point number."
+qb_kneel,float64,"Indicator if the QB kneeled (1 for true, 0 for false). Format: Floating point number."
+qb_spike,float64,"Indicator if the QB spiked the ball (1 for true, 0 for false). Format: Floating point number."
+qb_scramble,float64,"Indicator if the QB scrambled (1 for true, 0 for false). Format: Floating point number."
+pass_length,object,"Length of the pass (short, medium, long). Format: String."
+pass_location,object,"Location of the pass (left, middle, right). Format: String."
+air_yards,float64,Air yards on the pass. Format: Floating point number.
+yards_after_catch,float64,Yards gained after the catch. Format: Floating point number.
+run_location,object,"Location of the run (left, middle, right). Format: String."
+run_gap,object,"Gap where the run occurred (end, tackle, guard). Format: String."
+field_goal_result,object,"Result of the field goal attempt (made, missed, blocked). Format: String."
+kick_distance,float64,Distance of the kick. Format: Floating point number.
+extra_point_result,object,"Result of the extra point attempt (good, no good, blocked). Format: String."
+two_point_conv_result,float64,"Result of the two-point conversion (success, failure). Format: String."
+home_timeouts_remaining,float64,Number of timeouts remaining for the home team. Format: Integer.
+away_timeouts_remaining,float64,Number of timeouts remaining for the away team. Format: Integer.
+timeout,float64,"Indicator if a timeout was called (1 for true, 0 for false). Format: Integer."
+timeout_team,object,Team that called the timeout. Format: String.
+td_team,object,"Team that scored the touchdown. Example: ""NE"" for New England Patriots."
+td_player_name,object,"Name of the player who scored the touchdown. Example: ""Tom Brady""."
+td_player_id,object,"Unique identifier for the player who scored the touchdown. Example: ""00-0031234""."
+posteam_timeouts_remaining,int64,Number of timeouts remaining for the offensive team.
+defteam_timeouts_remaining,int64,Number of timeouts remaining for the defensive team.
+total_home_score,int64,Total score for the home team at that point in the game.
+total_away_score,int64,Total score for the away team at that point in the game.
+posteam_score,int64,Score of the offensive team at that point in the game.
+defteam_score,int64,Score of the defensive team at that point in the game.
+score_differential,int64,Point difference between the offensive and defensive teams. Example: 7.
+posteam_score_post,int64,Score of the offensive team after the play.
+defteam_score_post,int64,Score of the defensive team after the play.
+score_differential_post,int64,Point difference between the offensive and defensive teams after the play. Example: 10.
+no_score_prob,float64,Probability that no score will occur on the drive.
+opp_fg_prob,float64,Probability that the opposing team will score a field goal.
+opp_safety_prob,float64,Probability that the opposing team will score a safety.
+opp_td_prob,float64,Probability that the opposing team will score a touchdown.
+fg_prob,float64,Probability of the current team scoring a field goal.
+safety_prob,float64,Probability of the current team scoring a safety.
+td_prob,float64,Probability of the current team scoring a touchdown.
+extra_point_prob,float64,Probability of scoring an extra point after a touchdown.
+two_point_conversion_prob,float64,Probability of successfully converting a two-point conversion.
+ep,float64,Expected points for the play.
+epa,float64,Expected points added by the play.
+total_home_epa,float64,Total expected points added by the home team.
+total_away_epa,float64,Total expected points added by the away team.
+total_home_rush_epa,float64,Total expected points added by the home team's rushing plays.
+total_away_rush_epa,float64,Total expected points added by the away team's rushing plays.
+total_home_pass_epa,float64,Total expected points added by the home team's passing plays.
+total_away_pass_epa,float64,Total expected points added by the away team's passing plays.
+air_epa,float64,Expected points added by the air yards of the pass.
+yac_epa,float64,Expected points added by the yards after catch.
+comp_air_epa,float64,Expected points added by completed air yards.
+comp_yac_epa,float64,Expected points added by completed yards after catch.
+total_home_comp_air_epa,float64,Total expected points added by completed air yards for the home team.
+total_away_comp_air_epa,float64,Total expected points added by completed air yards for the away team.
+total_home_comp_yac_epa,float64,Total expected points added by completed yards after catch for the home team.
+total_away_comp_yac_epa,float64,Total expected points added by completed yards after catch for the away team.
+total_home_raw_air_epa,float64,Total raw expected points added by air yards for the home team.
+total_away_raw_air_epa,float64,Total raw expected points added by air yards for the away team.
+total_home_raw_yac_epa,float64,Total raw expected points added by yards after catch for the home team.
+total_away_raw_yac_epa,float64,Total raw expected points added by yards after catch for the away team.
+wp,float64,Win probability for the current team.
+def_wp,float64,Win probability for the defensive team.
+home_wp,float64,Win probability for the home team.
+away_wp,float64,Win probability for the away team.
+wpa,float64,Win probability added by the play.
+vegas_wpa,float64,Win probability added by the play according to Vegas odds.
+vegas_home_wpa,float64,Win probability added by the play for the home team according to Vegas odds.
+home_wp_post,float64,Win probability for the home team after the play.
+away_wp_post,float64,Win probability for the away team after the play.
+vegas_wp,float64,Win probability for the current team according to Vegas odds.
+vegas_home_wp,float64,Win probability for the home team according to Vegas odds.
+total_home_rush_wpa,float64,Total win probability added by rushing plays for the home team.
+total_away_rush_wpa,float64,Total win probability added by rushing plays for the away team.
+total_home_pass_wpa,float64,Total win probability added by passing plays for the home team.
+total_away_pass_wpa,float64,Total win probability added by passing plays for the away team.
+air_wpa,float64,Win probability added by the air yards of the pass.
+yac_wpa,float64,Win probability added by the yards after catch.
+comp_air_wpa,float64,Win probability added by completed air yards.
+comp_yac_wpa,float64,Win probability added by completed yards after catch.
+total_home_comp_air_wpa,float64,Total win probability added by completed air yards for the home team.
+total_away_comp_air_wpa,float64,Total win probability added by completed air yards for the away team.
+total_home_comp_yac_wpa,float64,Total win probability added by completed yards after catch for the home team.
+total_away_comp_yac_wpa,float64,Total win probability added by completed yards after catch for the away team.
+total_home_raw_air_wpa,float64,Total raw win probability added by air yards for the home team.
+total_away_raw_air_wpa,float64,Total raw win probability added by air yards for the away team.
+total_home_raw_yac_wpa,float64,Total raw win probability added by yards after catch for the home team.
+total_away_raw_yac_wpa,float64,Total raw win probability added by yards after catch for the away team.
+punt_blocked,int64,"Indicates if the punt was blocked. Values: 0 (No), 1 (Yes)."
+first_down_rush,int64,"Indicates if the first down was achieved by a rushing play. Values: 0 (No), 1 (Yes)."
+first_down_pass,int64,"Indicates if the first down was achieved by a passing play. Values: 0 (No), 1 (Yes)."
+first_down_penalty,int64,"Indicates if the first down was achieved by a penalty. Values: 0 (No), 1 (Yes)."
+third_down_converted,int64,"Indicates if the third down was converted. Values: 0 (No), 1 (Yes)."
+third_down_failed,int64,"Indicates if the third down was failed. Values: 0 (No), 1 (Yes)."
+fourth_down_converted,int64,"Indicates if the fourth down was converted. Values: 0 (No), 1 (Yes)."
+fourth_down_failed,int64,"Indicates if the fourth down was failed. Values: 0 (No), 1 (Yes)."
+incomplete_pass,int64,"Indicates if the pass was incomplete. Values: 0 (No), 1 (Yes)."
+touchback,int64,"Indicates if the play resulted in a touchback. Values: 0 (No), 1 (Yes)."
+interception,int64,"Indicates if the pass was intercepted. Values: 0 (No), 1 (Yes)."
+punt_inside_twenty,int64,"Indicates if the punt landed inside the 20-yard line. Values: 0 (No), 1 (Yes)."
+punt_in_endzone,int64,"Indicates if the punt landed in the end zone. Values: 0 (No), 1 (Yes)."
+punt_out_of_bounds,int64,"Indicates if the punt went out of bounds. Values: 0 (No), 1 (Yes)."
+punt_downed,int64,"Indicates if the punt was downed. Values: 0 (No), 1 (Yes)."
+punt_fair_catch,int64,"Indicates if the punt resulted in a fair catch. Values: 0 (No), 1 (Yes)."
+kickoff_inside_twenty,int64,"Indicates if the kickoff landed inside the 20-yard line. Values: 0 (No), 1 (Yes)."
+kickoff_in_endzone,int64,"Indicates if the kickoff landed in the end zone. Values: 0 (No), 1 (Yes)."
+kickoff_out_of_bounds,int64,"Indicates if the kickoff went out of bounds. Values: 0 (No), 1 (Yes)."
+kickoff_downed,int64,"Indicates if the kickoff was downed. Values: 0 (No), 1 (Yes)."
+kickoff_fair_catch,int64,"Indicates if the kickoff resulted in a fair catch. Values: 0 (No), 1 (Yes)."
+fumble_forced,int64,"Indicates if a fumble was forced by the defense. Values: 0 (No), 1 (Yes)."
+fumble_not_forced,int64,"Indicates if a fumble was not forced. Values: 0 (No), 1 (Yes)."
+fumble_out_of_bounds,int64,"Indicates if the fumble went out of bounds. Values: 0 (No), 1 (Yes)."
+solo_tackle,int64,"Indicates if a solo tackle was made. Values: 0 (No), 1 (Yes)."
+safety,int64,"Indicates if a safety was scored. Values: 0 (No), 1 (Yes)."
+penalty,int64,"Indicates if a penalty occurred. Values: 0 (No), 1 (Yes)."
+tackled_for_loss,int64,"Indicates if a player was tackled for a loss. Values: 0 (No), 1 (Yes)."
+fumble_lost,int64,"Indicates if a fumble was lost to the opposing team. Values: 0 (No), 1 (Yes)."
+own_kickoff_recovery,int64,"Indicates if the kicking team recovered the kickoff. Values: 0 (No), 1 (Yes)."
+own_kickoff_recovery_td,int64,"Indicates if the kicking team recovered the kickoff for a touchdown. Values: 0 (No), 1 (Yes)."
+qb_hit,string,"Indicator if the quarterback was hit during the play (1 = Yes, 0 = No)."
+rush_attempt,string,"Indicator if a rushing attempt was made (1 = Yes, 0 = No)."
+pass_attempt,string,"Indicator if a passing attempt was made (1 = Yes, 0 = No)."
+sack,string,"Indicator if a sack occurred (1 = Yes, 0 = No)."
+touchdown,string,"Indicator if a touchdown was scored (1 = Yes, 0 = No)."
+pass_touchdown,string,"Indicator if a passing touchdown was scored (1 = Yes, 0 = No)."
+rush_touchdown,string,"Indicator if a rushing touchdown was scored (1 = Yes, 0 = No)."
+return_touchdown,string,"Indicator if a return touchdown was scored (1 = Yes, 0 = No)."
+extra_point_attempt,string,"Indicator if an extra point attempt was made (1 = Yes, 0 = No)."
+two_point_attempt,string,"Indicator if a two-point conversion attempt was made (1 = Yes, 0 = No)."
+field_goal_attempt,string,"Indicator if a field goal attempt was made (1 = Yes, 0 = No)."
+kickoff_attempt,string,"Indicator if a kickoff attempt was made (1 = Yes, 0 = No)."
+punt_attempt,string,"Indicator if a punt attempt was made (1 = Yes, 0 = No)."
+fumble,string,"Indicator if a fumble occurred (1 = Yes, 0 = No)."
+complete_pass,string,"Indicator if a pass was completed (1 = Yes, 0 = No)."
+assist_tackle,string,"Indicator if an assist tackle occurred (1 = Yes, 0 = No)."
+lateral_reception,string,"Indicator if a lateral reception occurred (1 = Yes, 0 = No)."
+lateral_rush,string,"Indicator if a lateral rush occurred (1 = Yes, 0 = No)."
+lateral_return,string,"Indicator if a lateral return occurred (1 = Yes, 0 = No)."
+lateral_recovery,string,"Indicator if a lateral recovery occurred (1 = Yes, 0 = No)."
+passer_player_id,int,Player ID of the passer.
+passer_player_name,string,Name of the passer.
+passing_yards,int,Yards gained from passing.
+receiver_player_id,int,Player ID of the receiver.
+receiver_player_name,string,Name of the receiver.
+receiving_yards,int,Yards gained from receiving.
+rusher_player_id,int,Player ID of the rusher.
+rusher_player_name,string,Name of the rusher.
+rushing_yards,int,Yards gained from rushing.
+lateral_receiver_player_id,int,Player ID of the lateral receiver.
+lateral_receiver_player_name,string,Name of the lateral receiver.
+lateral_receiving_yards,int,Yards gained from lateral receiving.
+lateral_rusher_player_id,int,Player ID of the lateral rusher.
+lateral_rusher_player_name,string,Name of the lateral rusher.
+lateral_rushing_yards,int,Yards gained from lateral rushing.
+lateral_sack_player_id,int,Player ID of the player who performed a lateral sack.
+lateral_sack_player_name,string,Name of the player who performed a lateral sack.
+interception_player_id,int,Player ID of the player who made the interception.
+interception_player_name,string,Name of the player who made the interception.
+lateral_interception_player_id,int,Player ID of the player who made the lateral interception.
+lateral_interception_player_name,string,Name of the player who made the lateral interception.
+punt_returner_player_id,int,Player ID of the punt returner.
+punt_returner_player_name,string,Name of the punt returner.
+lateral_punt_returner_player_id,int,Player ID of the player who made a lateral punt return.
+lateral_punt_returner_player_name,string,Name of the player who made a lateral punt return.
+kickoff_returner_player_name,string,Name of the kickoff returner.
+kickoff_returner_player_id,int,Player ID of the kickoff returner.
+lateral_kickoff_returner_player_id,int,Player ID of the player who made a lateral kickoff return.
+lateral_kickoff_returner_player_name,string,Name of the player who made a lateral kickoff return.
+punter_player_id,int,Player ID of the punter.
+punter_player_name,string,Name of the punter.
+kicker_player_name,string,Name of the kicker.
+kicker_player_id,int,Player ID of the kicker.
+own_kickoff_recovery_player_id,int,Player ID of the player who recovered their own team's kickoff.
+own_kickoff_recovery_player_name,string,Name of the player who recovered their own team's kickoff.
+blocked_player_id,int,Player ID of the player who blocked a kick or punt.
+blocked_player_name,string,Name of the player who blocked a kick or punt.
+tackle_for_loss_1_player_id,int,Player ID of the first player who made a tackle for loss.
+tackle_for_loss_1_player_name,string,Name of the first player who made a tackle for loss.
+tackle_for_loss_2_player_id,int,Player ID of the second player who made a tackle for loss.
+tackle_for_loss_2_player_name,string,Name of the second player who made a tackle for loss.
+qb_hit_1_player_id,int,Player ID of the first player who hit the quarterback.
+qb_hit_1_player_name,string,Name of the first player who hit the quarterback.
+qb_hit_2_player_id,int,Player ID of the second player who hit the quarterback.
+qb_hit_2_player_name,string,Name of the second player who hit the quarterback.
+forced_fumble_player_1_team,string,Team of the first player who forced a fumble.
+forced_fumble_player_1_player_id,int,Player ID of the first player who forced a fumble.
+forced_fumble_player_1_player_name,string,Name of the first player who forced a fumble.
+forced_fumble_player_2_team,string,Team of the second player who forced a fumble.
+forced_fumble_player_2_player_id,int,Player ID of the second player who forced a fumble.
+forced_fumble_player_2_player_name,string,Name of the second player who forced a fumble.
+solo_tackle_1_team,string,Team of the first player who made a solo tackle.
+solo_tackle_2_team,string,Team of the second player who made a solo tackle.
+solo_tackle_1_player_id,int,Player ID of the first player who made a solo tackle.
+solo_tackle_2_player_id,int,Player ID of the second player who made a solo tackle.
+solo_tackle_1_player_name,String,Name of the first player who made a solo tackle.
+solo_tackle_2_player_name,string,Name of the second player who made a solo tackle.
+assist_tackle_1_player_id,int,Player ID of the first player who made an assist tackle.
+assist_tackle_1_player_name,string,Name of the first player who made an assist tackle.
+assist_tackle_1_team,string,Team of the first player who made an assist tackle.
+assist_tackle_2_player_id,int,Player ID of the second player who made an assist tackle.
+assist_tackle_2_player_name,string,Name of the second player who made an assist tackle.
+assist_tackle_2_team,string,Team of the second player who made an assist tackle.
+assist_tackle_3_player_id,int,Player ID of the third player who made an assist tackle.
+assist_tackle_3_player_name,string,Name of the third player who made an assist tackle.
+assist_tackle_3_team,string,Team of the third player who made an assist tackle.
+assist_tackle_4_player_id,int,Player ID of the fourth player who made an assist tackle.
+assist_tackle_4_player_name,string,Name of the fourth player who made an assist tackle.
+assist_tackle_4_team,string,Team of the fourth player who made an assist tackle.
+tackle_with_assist,string,"Indicator if a tackle with assist occurred (1 = Yes, 0 = No)."
+tackle_with_assist_1_player_id,int,Player ID of the first player who made a tackle with assist.
+tackle_with_assist_1_player_name,string,Name of the first player who made a tackle with assist.
+tackle_with_assist_1_team,string,Team of the first player who made a tackle with assist.
+tackle_with_assist_2_player_id,int,Player ID of the second player who made a tackle with assist.
+tackle_with_assist_2_player_name,string,Name of the second player who made a tackle with assist.
+tackle_with_assist_2_team,string,Team of the second player who made a tackle with assist.
+pass_defense_1_player_id,int,Player ID of the first player who made a pass defense.
+pass_defense_1_player_name,string,Name of the first player who made a pass defense.
+pass_defense_2_player_id,int,Player ID of the second player who made a pass defense.
+pass_defense_2_player_name,string,Name of the second player who made a pass defense.
+fumbled_1_team,string,Team of the first player who fumbled.
+fumbled_1_player_id,int,Player ID of the first player who fumbled.
+fumbled_1_player_name,string,Name of the first player who fumbled.
+fumbled_2_player_id,int,Player ID of the second player who fumbled.
+fumbled_2_player_name,string,Name of the second player who fumbled.
+fumbled_2_team,string,Team of the second player who fumbled.
+fumble_recovery_1_team,string,Team of the first player who recovered the fumble.
+fumble_recovery_1_yards,int,Yards gained by the first player who recovered the fumble.
+fumble_recovery_1_player_id,int,Player ID of the first player who recovered the fumble.
+fumble_recovery_1_player_name,string,Name of the first player who recovered the fumble.
+fumble_recovery_2_team,string,Team of the second player who recovered the fumble.
+fumble_recovery_2_yards,int,Yards gained by the second player who recovered the fumble.
+fumble_recovery_2_player_id,int,Player ID of the second player who recovered the fumble.
+fumble_recovery_2_player_name,string,Name of the second player who recovered the fumble.
+sack_player_id,int,Player ID of the player who made the sack.
+sack_player_name,string,Name of the player who made the sack.
+half_sack_1_player_id,int,Player ID of the first player who made a half sack.
+half_sack_1_player_name,string,Name of the first player who made a half sack.
+half_sack_2_player_id,int,Player ID of the second player who made a half sack.
+half_sack_2_player_name,string,Name of the second player who made a half sack.
+return_team,string,Team of the player who made the return.
+return_yards,int,Yards gained during the return.
+penalty_team,string,Team that committed the penalty.
+penalty_player_id,int,Player ID of the player who committed the penalty.
+penalty_player_name,string,Name of the player who committed the penalty.
+penalty_yards,int,Yards penalized.
+replay_or_challenge,string,"Indicator if a replay or challenge occurred (1 = Yes, 0 = No)."
+replay_or_challenge_result,string,"Result of the replay or challenge (e.g., upheld, overturned)."
+penalty_type,string,Type of penalty committed.
+defensive_two_point_attempt,string,"Indicator if a defensive two-point attempt occurred (1 = Yes, 0 = No)."
+defensive_two_point_conv,string,"Indicator if a defensive two-point conversion was successful (1 = Yes, 0 = No)."
+defensive_extra_point_attempt,string,"Indicator if a defensive extra point attempt occurred (1 = Yes, 0 = No)."
+defensive_extra_point_conv,string,"Indicator if a defensive extra point conversion was successful (1 = Yes, 0 = No)."
+safety_player_name,string,Name of the player who scored a safety.
+safety_player_id,int,Player ID of the player who scored a safety.
+season,int,NFL season year.
+cp,float,Completion probability of the pass.
+cpoe,float,Completion percentage over expected.
+series,string,Series identifier.
+series_success,string,"Indicator if the series was successful (1 = Yes, 0 = No)."
+series_result,string,"Result of the series (e.g., touchdown, punt)."
+order_sequence,int,Sequence number of the play within the series.
+start_time,string,Start time of the play.
+time_of_day,string,Time of day when the play occurred.
+stadium,string,Stadium where the play occurred.
+weather,string,Weather conditions during the play.
+nfl_api_id,string,NFL API identifier for the play.
+play_clock,string,Time on the play clock.
+play_deleted,string,"Indicator if the play was deleted (1 = Yes, 0 = No)."
+play_type_nfl,string,Type of play according to NFL classification.
+special_teams_play,string,"Indicator if the play is a special teams play (1 = Yes, 0 = No)."
+st_play_type,string,Type of special teams play.
+end_clock_time,string,End clock time of the play.
+end_yard_line,string,Yard line where the play ended.
+fixed_drive,string,"Indicator if the drive is fixed (1 = Yes, 0 = No)."
+fixed_drive_result,string,Result of the fixed drive.
+drive_real_start_time,string,Real start time of the drive.
+drive_play_count,int,Number of plays in the drive.
+drive_time_of_possession,string,Time of possession during the drive.
+drive_first_downs,int,Number of first downs in the drive.
+drive_inside20,int,"Indicator if the drive reached inside the 20-yard line (1 = Yes, 0 = No)."
+drive_ended_with_score,int,"Indicator if the drive ended with a score (1 = Yes, 0 = No)."
+drive_quarter_start,int,Quarter in which the drive started.
+drive_quarter_end,int,Quarter in which the drive ended.
+drive_yards_penalized,int,Total yards penalized in the drive.
+drive_start_transition,string,Transition type at the start of the drive.
+drive_end_transition,string,Transition type at the end of the drive.
+drive_game_clock_start,string,Game clock time at the start of the drive.
+drive_game_clock_end,string,Game clock time at the end of the drive.
+drive_start_yard_line,string,Yard line where the drive started.
+drive_end_yard_line,string,Yard line where the drive ended.
+drive_play_id_started,int,Play ID where the drive started.
+drive_play_id_ended,int,Play ID where the drive ended.
+away_score,int,Score of the away team.
+home_score,int,Score of the home team.
+location,string,Location of the game.
+result,string,Result of the game.
+total,int,Total score of the game.
+spread_line,float,Spread line of the game.
+total_line,float,Total line of the game.
+div_game,int,"Indicator if the game is a divisional game (1 = Yes, 0 = No)."
+roof,string,Type of roof at the stadium.
+surface,string,Type of surface at the stadium.
+temp,float,Temperature during the game.
+wind,float,Wind speed during the game.
+home_coach,string,Name of the home team coach.
+away_coach,string,Name of the away team coach.
+stadium_id,int,Stadium identifier.
+game_stadium,string,Name of the stadium.
+aborted_play,string,"Indicator if the play was aborted (1 = Yes, 0 = No)."
+success,string,"Indicator if the play was successful (1 = Yes, 0 = No)."
+passer,string,Name of the passer.
+passer_jersey_number,int,Jersey number of the passer.
+rusher,string,Name of the rusher.
+rusher_jersey_number,int,Jersey number of the rusher.
+receiver,string,Name of the receiver.
+receiver_jersey_number,int,Jersey number of the receiver.
+pass,string,"Indicator if the play was a pass (1 = Yes, 0 = No)."
+rush,string,"Indicator if the play was a rush (1 = Yes, 0 = No)."
+first_down,string,"Indicator if the play resulted in a first down (1 = Yes, 0 = No)."
+special,string,"Indicator if the play was a special play (1 = Yes, 0 = No)."
+play,string,"Indicator if the play occurred (1 = Yes, 0 = No)."
+passer_id,int,Player ID of the passer.
+rusher_id,int,Player ID of the rusher.
+receiver_id,int,Player ID of the receiver.
+name,string,Name of the player involved in the play.
+jersey_number,int,Jersey number of the player involved in the play.
+id,int,Player identifier.
+fantasy_player_name,string,Name of the fantasy player.
+fantasy_player_id,int,Fantasy player identifier.
+fantasy,string,"Indicator if the player is a fantasy player (1 = Yes, 0 = No)."
+fantasy_id,int,Fantasy identifier.
+out_of_bounds,string,"Indicator if the play went out of bounds (1 = Yes, 0 = No)."
+home_opening_kickoff,string,"Indicator if the home team performed the opening kickoff (1 = Yes, 0 = No)."
+qb_epa,float,Quarterback's expected points added.
+xyac_epa,float,Expected points added based on yards after catch.
+xyac_mean_yardage,float,Mean yardage expected after catch.
+xyac_median_yardage,float,Median yardage expected after catch.
+xyac_success,string,"Indicator if the play was successful based on yards after catch (1 = Yes, 0 = No)."
+xyac_fd,string,"Indicator if the play resulted in a first down based on yards after catch (1 = Yes, 0 = No)."
+xpass,float,Expected pass probability.
+pass_oe,float,Pass over expected.
+nflverse_game_id,string,NFLVerse game identifier.
+possession_team,string,Team in possession of the ball.
+offense_formation,string,Offensive formation used during the play.
+offense_personnel,string,Personnel used by the offense.
+defenders_in_box,int,Number of defenders in the box.
+defense_personnel,string,Personnel used by the defense.
+number_of_pass_rushers,int,Number of pass rushers on the play.
+players_on_play,int,Total number of players involved in the play.
+offense_players,string,List of offensive players involved in the play.
+defense_players,string,List of defensive players involved in the play.
+n_offense,int,Number of offensive players involved in the play.
+n_defense,int,Number of defensive players involved in the play.
+ngs_air_yards,float,Next Gen Stats air yards.
+time_to_throw,float,Time taken by the quarterback to throw the ball.
+was_pressure,string,"Indicator if there was pressure on the quarterback (1 = Yes, 0 = No)."
+route,string,Route run by the receiver.
+defense_man_zone_type,string,Type of defensive coverage (man or zone).
+defense_coverage_type,string,Specific type of defensive coverage used on the play.
